@@ -1,0 +1,32 @@
+export interface POSTCharacterResponse {
+    success : boolean,
+    message : string | null,
+    error ?: {
+        name?: string[] | undefined;
+        str?: string[] | undefined;
+        def?: string[] | undefined;
+        luk?: string[] | undefined;
+        hp?: string[] | undefined;
+    }
+}
+
+export interface GETCharacterResponse {
+    success : boolean,
+    message : string | null,
+    error ?: {
+        name?: string[] | undefined;
+        str?: string[] | undefined;
+        def?: string[] | undefined;
+        luk?: string[] | undefined;
+        hp?: string[] | undefined;
+    },
+    data ?: 
+    {
+        name: string;
+        id: number;
+        str: number;
+        def: number;
+        hp: number;
+        luk: number;
+    }[]
+}
