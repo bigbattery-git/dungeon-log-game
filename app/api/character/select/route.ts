@@ -38,7 +38,8 @@ export async function POST(req : NextRequest){
                 userId : true
             }, 
             where : {
-                id : reqData.id
+                id : reqData.id,
+                deletedAt : null
             }
         })
 
