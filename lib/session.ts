@@ -2,7 +2,8 @@ import { getIronSession, SessionOptions } from "iron-session";
 import { cookies } from "next/headers";
 
 export type SessionUserData = {
-    id : string
+    id : string,
+    charId ?: number 
 }
 
 export type SessionData = {
