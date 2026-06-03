@@ -44,6 +44,7 @@ export async function POST(req : NextRequest) {
         }
 
         const session = await getSession();
+        session.isLoggedin = true;
         session.user = {
             id : result.id
         }
