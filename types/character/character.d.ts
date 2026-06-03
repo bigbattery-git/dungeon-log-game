@@ -31,6 +31,11 @@ export interface GETCharacterResponse {
     }[]
 }
 
+export interface POSTCharacterSelectResponse{
+    success : boolean,
+    message : null | string
+}
+
 export interface DELETECharacterResponse {
     success : boolean,
     message : string |null
