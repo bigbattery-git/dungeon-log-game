@@ -30,3 +30,8 @@ export interface GETCharacterResponse {
         luk: number;
     }[]
 }
+
+export interface DELETECharacterResponse {
+    success : boolean,
+    message : string |null
+}
