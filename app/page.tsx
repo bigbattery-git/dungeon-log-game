@@ -20,7 +20,7 @@ export default async function home() {
   const loggedinTSX = (
     <>
       <Link href={"/character"}>캐릭터 선택</Link>
-      <form action={logout} method="POST"><button type="submit">로그아웃</button></form>
+      <form action={logout}><button type="submit">로그아웃</button></form>
     </>
   )
 
