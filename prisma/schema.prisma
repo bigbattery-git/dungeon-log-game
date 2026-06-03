@@ -34,6 +34,7 @@ model Character{
   def Int @default(0)  // 방어력
   luk Int @default(1)  // 운
   hp Int @default(10)  // 체력
+  exp Int @default(0)  // 경험치
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   deletedAt DateTime? @map("deleted_at")

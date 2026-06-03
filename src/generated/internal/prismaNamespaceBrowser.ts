@@ -93,6 +93,7 @@ export const CharacterScalarFieldEnum = {
   def: 'def',
   luk: 'luk',
   hp: 'hp',
+  exp: 'exp',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt'

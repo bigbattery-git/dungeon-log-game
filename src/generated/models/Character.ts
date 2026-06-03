@@ -32,6 +32,7 @@ export type CharacterAvgAggregateOutputType = {
   def: number | null
   luk: number | null
   hp: number | null
+  exp: number | null
 }
 
 export type CharacterSumAggregateOutputType = {
@@ -40,6 +41,7 @@ export type CharacterSumAggregateOutputType = {
   def: number | null
   luk: number | null
   hp: number | null
+  exp: number | null
 }
 
 export type CharacterMinAggregateOutputType = {
@@ -50,6 +52,7 @@ export type CharacterMinAggregateOutputType = {
   def: number | null
   luk: number | null
   hp: number | null
+  exp: number | null
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
@@ -63,6 +66,7 @@ export type CharacterMaxAggregateOutputType = {
   def: number | null
   luk: number | null
   hp: number | null
+  exp: number | null
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
@@ -76,6 +80,7 @@ export type CharacterCountAggregateOutputType = {
   def: number
   luk: number
   hp: number
+  exp: number
   createdAt: number
   updatedAt: number
   deletedAt: number
@@ -89,6 +94,7 @@ export type CharacterAvgAggregateInputType = {
   def?: true
   luk?: true
   hp?: true
+  exp?: true
 }
 
 export type CharacterSumAggregateInputType = {
@@ -97,6 +103,7 @@ export type CharacterSumAggregateInputType = {
   def?: true
   luk?: true
   hp?: true
+  exp?: true
 }
 
 export type CharacterMinAggregateInputType = {
@@ -107,6 +114,7 @@ export type CharacterMinAggregateInputType = {
   def?: true
   luk?: true
   hp?: true
+  exp?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
@@ -120,6 +128,7 @@ export type CharacterMaxAggregateInputType = {
   def?: true
   luk?: true
   hp?: true
+  exp?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
@@ -133,6 +142,7 @@ export type CharacterCountAggregateInputType = {
   def?: true
   luk?: true
   hp?: true
+  exp?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
@@ -233,6 +243,7 @@ export type CharacterGroupByOutputType = {
   def: number
   luk: number
   hp: number
+  exp: number
   createdAt: Date
   updatedAt: Date
   deletedAt: Date | null
@@ -269,6 +280,7 @@ export type CharacterWhereInput = {
   def?: Prisma.IntFilter<"Character"> | number
   luk?: Prisma.IntFilter<"Character"> | number
   hp?: Prisma.IntFilter<"Character"> | number
+  exp?: Prisma.IntFilter<"Character"> | number
   createdAt?: Prisma.DateTimeFilter<"Character"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Character"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Character"> | Date | string | null
@@ -285,6 +297,7 @@ export type CharacterOrderByWithRelationInput = {
   def?: Prisma.SortOrder
   luk?: Prisma.SortOrder
   hp?: Prisma.SortOrder
+  exp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -305,6 +318,7 @@ export type CharacterWhereUniqueInput = Prisma.AtLeast<{
   def?: Prisma.IntFilter<"Character"> | number
   luk?: Prisma.IntFilter<"Character"> | number
   hp?: Prisma.IntFilter<"Character"> | number
+  exp?: Prisma.IntFilter<"Character"> | number
   createdAt?: Prisma.DateTimeFilter<"Character"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Character"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Character"> | Date | string | null
@@ -321,6 +335,7 @@ export type CharacterOrderByWithAggregationInput = {
   def?: Prisma.SortOrder
   luk?: Prisma.SortOrder
   hp?: Prisma.SortOrder
+  exp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -342,6 +357,7 @@ export type CharacterScalarWhereWithAggregatesInput = {
   def?: Prisma.IntWithAggregatesFilter<"Character"> | number
   luk?: Prisma.IntWithAggregatesFilter<"Character"> | number
   hp?: Prisma.IntWithAggregatesFilter<"Character"> | number
+  exp?: Prisma.IntWithAggregatesFilter<"Character"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Character"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Character"> | Date | string
   deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Character"> | Date | string | null
@@ -353,6 +369,7 @@ export type CharacterCreateInput = {
   def?: number
   luk?: number
   hp?: number
+  exp?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -369,6 +386,7 @@ export type CharacterUncheckedCreateInput = {
   def?: number
   luk?: number
   hp?: number
+  exp?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -382,6 +400,7 @@ export type CharacterUpdateInput = {
   def?: Prisma.IntFieldUpdateOperationsInput | number
   luk?: Prisma.IntFieldUpdateOperationsInput | number
   hp?: Prisma.IntFieldUpdateOperationsInput | number
+  exp?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -398,6 +417,7 @@ export type CharacterUncheckedUpdateInput = {
   def?: Prisma.IntFieldUpdateOperationsInput | number
   luk?: Prisma.IntFieldUpdateOperationsInput | number
   hp?: Prisma.IntFieldUpdateOperationsInput | number
+  exp?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -413,6 +433,7 @@ export type CharacterCreateManyInput = {
   def?: number
   luk?: number
   hp?: number
+  exp?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -424,6 +445,7 @@ export type CharacterUpdateManyMutationInput = {
   def?: Prisma.IntFieldUpdateOperationsInput | number
   luk?: Prisma.IntFieldUpdateOperationsInput | number
   hp?: Prisma.IntFieldUpdateOperationsInput | number
+  exp?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -437,6 +459,7 @@ export type CharacterUncheckedUpdateManyInput = {
   def?: Prisma.IntFieldUpdateOperationsInput | number
   luk?: Prisma.IntFieldUpdateOperationsInput | number
   hp?: Prisma.IntFieldUpdateOperationsInput | number
+  exp?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -466,6 +489,7 @@ export type CharacterCountOrderByAggregateInput = {
   def?: Prisma.SortOrder
   luk?: Prisma.SortOrder
   hp?: Prisma.SortOrder
+  exp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -477,6 +501,7 @@ export type CharacterAvgOrderByAggregateInput = {
   def?: Prisma.SortOrder
   luk?: Prisma.SortOrder
   hp?: Prisma.SortOrder
+  exp?: Prisma.SortOrder
 }
 
 export type CharacterMaxOrderByAggregateInput = {
@@ -487,6 +512,7 @@ export type CharacterMaxOrderByAggregateInput = {
   def?: Prisma.SortOrder
   luk?: Prisma.SortOrder
   hp?: Prisma.SortOrder
+  exp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -500,6 +526,7 @@ export type CharacterMinOrderByAggregateInput = {
   def?: Prisma.SortOrder
   luk?: Prisma.SortOrder
   hp?: Prisma.SortOrder
+  exp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -511,6 +538,7 @@ export type CharacterSumOrderByAggregateInput = {
   def?: Prisma.SortOrder
   luk?: Prisma.SortOrder
   hp?: Prisma.SortOrder
+  exp?: Prisma.SortOrder
 }
 
 export type CharacterScalarRelationFilter = {
@@ -606,6 +634,7 @@ export type CharacterCreateWithoutUserInput = {
   def?: number
   luk?: number
   hp?: number
+  exp?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -620,6 +649,7 @@ export type CharacterUncheckedCreateWithoutUserInput = {
   def?: number
   luk?: number
   hp?: number
+  exp?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -664,6 +694,7 @@ export type CharacterScalarWhereInput = {
   def?: Prisma.IntFilter<"Character"> | number
   luk?: Prisma.IntFilter<"Character"> | number
   hp?: Prisma.IntFilter<"Character"> | number
+  exp?: Prisma.IntFilter<"Character"> | number
   createdAt?: Prisma.DateTimeFilter<"Character"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Character"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Character"> | Date | string | null
@@ -675,6 +706,7 @@ export type CharacterCreateWithoutItemsInput = {
   def?: number
   luk?: number
   hp?: number
+  exp?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -690,6 +722,7 @@ export type CharacterUncheckedCreateWithoutItemsInput = {
   def?: number
   luk?: number
   hp?: number
+  exp?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -718,6 +751,7 @@ export type CharacterUpdateWithoutItemsInput = {
   def?: Prisma.IntFieldUpdateOperationsInput | number
   luk?: Prisma.IntFieldUpdateOperationsInput | number
   hp?: Prisma.IntFieldUpdateOperationsInput | number
+  exp?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -733,6 +767,7 @@ export type CharacterUncheckedUpdateWithoutItemsInput = {
   def?: Prisma.IntFieldUpdateOperationsInput | number
   luk?: Prisma.IntFieldUpdateOperationsInput | number
   hp?: Prisma.IntFieldUpdateOperationsInput | number
+  exp?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -745,6 +780,7 @@ export type CharacterCreateWithoutExplorationLogsInput = {
   def?: number
   luk?: number
   hp?: number
+  exp?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -760,6 +796,7 @@ export type CharacterUncheckedCreateWithoutExplorationLogsInput = {
   def?: number
   luk?: number
   hp?: number
+  exp?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -788,6 +825,7 @@ export type CharacterUpdateWithoutExplorationLogsInput = {
   def?: Prisma.IntFieldUpdateOperationsInput | number
   luk?: Prisma.IntFieldUpdateOperationsInput | number
   hp?: Prisma.IntFieldUpdateOperationsInput | number
+  exp?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -803,6 +841,7 @@ export type CharacterUncheckedUpdateWithoutExplorationLogsInput = {
   def?: Prisma.IntFieldUpdateOperationsInput | number
   luk?: Prisma.IntFieldUpdateOperationsInput | number
   hp?: Prisma.IntFieldUpdateOperationsInput | number
+  exp?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -816,6 +855,7 @@ export type CharacterCreateManyUserInput = {
   def?: number
   luk?: number
   hp?: number
+  exp?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -827,6 +867,7 @@ export type CharacterUpdateWithoutUserInput = {
   def?: Prisma.IntFieldUpdateOperationsInput | number
   luk?: Prisma.IntFieldUpdateOperationsInput | number
   hp?: Prisma.IntFieldUpdateOperationsInput | number
+  exp?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -841,6 +882,7 @@ export type CharacterUncheckedUpdateWithoutUserInput = {
   def?: Prisma.IntFieldUpdateOperationsInput | number
   luk?: Prisma.IntFieldUpdateOperationsInput | number
   hp?: Prisma.IntFieldUpdateOperationsInput | number
+  exp?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -855,6 +897,7 @@ export type CharacterUncheckedUpdateManyWithoutUserInput = {
   def?: Prisma.IntFieldUpdateOperationsInput | number
   luk?: Prisma.IntFieldUpdateOperationsInput | number
   hp?: Prisma.IntFieldUpdateOperationsInput | number
+  exp?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -908,6 +951,7 @@ export type CharacterSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   def?: boolean
   luk?: boolean
   hp?: boolean
+  exp?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
@@ -927,12 +971,13 @@ export type CharacterSelectScalar = {
   def?: boolean
   luk?: boolean
   hp?: boolean
+  exp?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
 }
 
-export type CharacterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "userId" | "str" | "def" | "luk" | "hp" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["character"]>
+export type CharacterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "userId" | "str" | "def" | "luk" | "hp" | "exp" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["character"]>
 export type CharacterInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   items?: boolean | Prisma.Character$itemsArgs<ExtArgs>
@@ -955,6 +1000,7 @@ export type $CharacterPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     def: number
     luk: number
     hp: number
+    exp: number
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
@@ -1337,6 +1383,7 @@ export interface CharacterFieldRefs {
   readonly def: Prisma.FieldRef<"Character", 'Int'>
   readonly luk: Prisma.FieldRef<"Character", 'Int'>
   readonly hp: Prisma.FieldRef<"Character", 'Int'>
+  readonly exp: Prisma.FieldRef<"Character", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Character", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Character", 'DateTime'>
   readonly deletedAt: Prisma.FieldRef<"Character", 'DateTime'>
