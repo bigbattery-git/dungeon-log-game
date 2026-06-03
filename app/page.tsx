@@ -1,6 +1,16 @@
 import { getSession } from "@/lib/session"
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
+async function logout() {
+  "use server";
+
+  const session = await getSession();
+
+  session.destroy();
+
+  redirect("/");
+}
 
 export default async function home() {
 
@@ -10,7 +20,7 @@ export default async function home() {
   const loggedinTSX = (
     <>
       <Link href={"/character"}>캐릭터 선택</Link>
-      <form action="/logout" method="POST"><button type="submit">로그아웃</button></form>
+      <form action={logout} method="POST"><button type="submit">로그아웃</button></form>
     </>
   )
 
@@ -26,7 +36,7 @@ export default async function home() {
       <h1 className="text-3xl">던전 탐험</h1>
 
       {
-        session.isLoggedin ? loggedinTSX : notLoggedInTSX
+        isLoggedin ? loggedinTSX : notLoggedInTSX
       }
 
     </>
