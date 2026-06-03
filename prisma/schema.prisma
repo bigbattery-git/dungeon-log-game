@@ -1,0 +1,102 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  password String 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  characters Character[] @relation("fk_user_id")
+  @@map("users")
+}
+
+model Character{
+  id Int @id @default(autoincrement())
+  name String
+  userId String
+  str Int @default(1)  // 공격력
+  def Int @default(0)  // 방어력
+  luk Int @default(1)  // 운
+  hp Int @default(10)  // 체력
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  user User @relation("fk_user_id",fields: [userId], references: [id])
+
+  items Item[]
+  explorationLogs ExplorationLog[]
+
+  @@map("characters")
+}
+
+model DefaultItem{
+  code String @id // 아이템 코드도 같이 넣어야함 I-Heal-Potion 등
+  name String
+  content String? @db.VarChar(500)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  items Item[]
+  
+
+  @@map("default_items")
+}
+
+model Item{
+  id Int @id @default(autoincrement())
+  characterId Int
+  defaultItemCode String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  character Character @relation(fields: [characterId], references: [id])
+  defaultItem DefaultItem @relation(fields: [defaultItemCode], references: [code])
+
+  @@map("items")
+}
+
+model ExplorationLog {
+  id Int @id @default(autoincrement())
+  characterId Int
+  content String @db.VarChar(1000)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  character Character @relation(fields: [characterId], references: [id])
+  
+  @@map("exploration_logs")
+}
+
+model Monster {
+  code String @id
+  name String
+  content String
+  hp Int @default(3)  // 체력
+  str Int @default(1) // 공격력
+  def Int @default(0) // 방어력
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("monsters")
+}
