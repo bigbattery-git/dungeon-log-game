@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 export type SessionUserData = {
     id : string,
-    charId ?: number 
+    charId ?: number | null
 }
 
 export type SessionData = {
