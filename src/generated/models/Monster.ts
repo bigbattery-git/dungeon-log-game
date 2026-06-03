@@ -27,19 +27,21 @@ export type AggregateMonster = {
 }
 
 export type MonsterAvgAggregateOutputType = {
+  id: number | null
   hp: number | null
   str: number | null
   def: number | null
 }
 
 export type MonsterSumAggregateOutputType = {
+  id: number | null
   hp: number | null
   str: number | null
   def: number | null
 }
 
 export type MonsterMinAggregateOutputType = {
-  code: string | null
+  id: number | null
   name: string | null
   content: string | null
   hp: number | null
@@ -51,7 +53,7 @@ export type MonsterMinAggregateOutputType = {
 }
 
 export type MonsterMaxAggregateOutputType = {
-  code: string | null
+  id: number | null
   name: string | null
   content: string | null
   hp: number | null
@@ -63,7 +65,7 @@ export type MonsterMaxAggregateOutputType = {
 }
 
 export type MonsterCountAggregateOutputType = {
-  code: number
+  id: number
   name: number
   content: number
   hp: number
@@ -77,19 +79,21 @@ export type MonsterCountAggregateOutputType = {
 
 
 export type MonsterAvgAggregateInputType = {
+  id?: true
   hp?: true
   str?: true
   def?: true
 }
 
 export type MonsterSumAggregateInputType = {
+  id?: true
   hp?: true
   str?: true
   def?: true
 }
 
 export type MonsterMinAggregateInputType = {
-  code?: true
+  id?: true
   name?: true
   content?: true
   hp?: true
@@ -101,7 +105,7 @@ export type MonsterMinAggregateInputType = {
 }
 
 export type MonsterMaxAggregateInputType = {
-  code?: true
+  id?: true
   name?: true
   content?: true
   hp?: true
@@ -113,7 +117,7 @@ export type MonsterMaxAggregateInputType = {
 }
 
 export type MonsterCountAggregateInputType = {
-  code?: true
+  id?: true
   name?: true
   content?: true
   hp?: true
@@ -212,7 +216,7 @@ export type MonsterGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 export type MonsterGroupByOutputType = {
-  code: string
+  id: number
   name: string
   content: string
   hp: number
@@ -247,7 +251,7 @@ export type MonsterWhereInput = {
   AND?: Prisma.MonsterWhereInput | Prisma.MonsterWhereInput[]
   OR?: Prisma.MonsterWhereInput[]
   NOT?: Prisma.MonsterWhereInput | Prisma.MonsterWhereInput[]
-  code?: Prisma.StringFilter<"Monster"> | string
+  id?: Prisma.IntFilter<"Monster"> | number
   name?: Prisma.StringFilter<"Monster"> | string
   content?: Prisma.StringFilter<"Monster"> | string
   hp?: Prisma.IntFilter<"Monster"> | number
@@ -259,7 +263,7 @@ export type MonsterWhereInput = {
 }
 
 export type MonsterOrderByWithRelationInput = {
-  code?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   content?: Prisma.SortOrder
   hp?: Prisma.SortOrder
@@ -272,7 +276,7 @@ export type MonsterOrderByWithRelationInput = {
 }
 
 export type MonsterWhereUniqueInput = Prisma.AtLeast<{
-  code?: string
+  id?: number
   AND?: Prisma.MonsterWhereInput | Prisma.MonsterWhereInput[]
   OR?: Prisma.MonsterWhereInput[]
   NOT?: Prisma.MonsterWhereInput | Prisma.MonsterWhereInput[]
@@ -284,10 +288,10 @@ export type MonsterWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Monster"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Monster"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Monster"> | Date | string | null
-}, "code">
+}, "id">
 
 export type MonsterOrderByWithAggregationInput = {
-  code?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   content?: Prisma.SortOrder
   hp?: Prisma.SortOrder
@@ -307,7 +311,7 @@ export type MonsterScalarWhereWithAggregatesInput = {
   AND?: Prisma.MonsterScalarWhereWithAggregatesInput | Prisma.MonsterScalarWhereWithAggregatesInput[]
   OR?: Prisma.MonsterScalarWhereWithAggregatesInput[]
   NOT?: Prisma.MonsterScalarWhereWithAggregatesInput | Prisma.MonsterScalarWhereWithAggregatesInput[]
-  code?: Prisma.StringWithAggregatesFilter<"Monster"> | string
+  id?: Prisma.IntWithAggregatesFilter<"Monster"> | number
   name?: Prisma.StringWithAggregatesFilter<"Monster"> | string
   content?: Prisma.StringWithAggregatesFilter<"Monster"> | string
   hp?: Prisma.IntWithAggregatesFilter<"Monster"> | number
@@ -319,7 +323,6 @@ export type MonsterScalarWhereWithAggregatesInput = {
 }
 
 export type MonsterCreateInput = {
-  code: string
   name: string
   content: string
   hp?: number
@@ -331,7 +334,7 @@ export type MonsterCreateInput = {
 }
 
 export type MonsterUncheckedCreateInput = {
-  code: string
+  id?: number
   name: string
   content: string
   hp?: number
@@ -343,7 +346,6 @@ export type MonsterUncheckedCreateInput = {
 }
 
 export type MonsterUpdateInput = {
-  code?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   hp?: Prisma.IntFieldUpdateOperationsInput | number
@@ -355,7 +357,7 @@ export type MonsterUpdateInput = {
 }
 
 export type MonsterUncheckedUpdateInput = {
-  code?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   hp?: Prisma.IntFieldUpdateOperationsInput | number
@@ -367,7 +369,7 @@ export type MonsterUncheckedUpdateInput = {
 }
 
 export type MonsterCreateManyInput = {
-  code: string
+  id?: number
   name: string
   content: string
   hp?: number
@@ -379,7 +381,6 @@ export type MonsterCreateManyInput = {
 }
 
 export type MonsterUpdateManyMutationInput = {
-  code?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   hp?: Prisma.IntFieldUpdateOperationsInput | number
@@ -391,7 +392,7 @@ export type MonsterUpdateManyMutationInput = {
 }
 
 export type MonsterUncheckedUpdateManyInput = {
-  code?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   hp?: Prisma.IntFieldUpdateOperationsInput | number
@@ -409,7 +410,7 @@ export type MonsterOrderByRelevanceInput = {
 }
 
 export type MonsterCountOrderByAggregateInput = {
-  code?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   content?: Prisma.SortOrder
   hp?: Prisma.SortOrder
@@ -421,13 +422,14 @@ export type MonsterCountOrderByAggregateInput = {
 }
 
 export type MonsterAvgOrderByAggregateInput = {
+  id?: Prisma.SortOrder
   hp?: Prisma.SortOrder
   str?: Prisma.SortOrder
   def?: Prisma.SortOrder
 }
 
 export type MonsterMaxOrderByAggregateInput = {
-  code?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   content?: Prisma.SortOrder
   hp?: Prisma.SortOrder
@@ -439,7 +441,7 @@ export type MonsterMaxOrderByAggregateInput = {
 }
 
 export type MonsterMinOrderByAggregateInput = {
-  code?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   content?: Prisma.SortOrder
   hp?: Prisma.SortOrder
@@ -451,6 +453,7 @@ export type MonsterMinOrderByAggregateInput = {
 }
 
 export type MonsterSumOrderByAggregateInput = {
+  id?: Prisma.SortOrder
   hp?: Prisma.SortOrder
   str?: Prisma.SortOrder
   def?: Prisma.SortOrder
@@ -459,7 +462,7 @@ export type MonsterSumOrderByAggregateInput = {
 
 
 export type MonsterSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  code?: boolean
+  id?: boolean
   name?: boolean
   content?: boolean
   hp?: boolean
@@ -473,7 +476,7 @@ export type MonsterSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 
 
 export type MonsterSelectScalar = {
-  code?: boolean
+  id?: boolean
   name?: boolean
   content?: boolean
   hp?: boolean
@@ -484,13 +487,13 @@ export type MonsterSelectScalar = {
   deletedAt?: boolean
 }
 
-export type MonsterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"code" | "name" | "content" | "hp" | "str" | "def" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["monster"]>
+export type MonsterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "content" | "hp" | "str" | "def" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["monster"]>
 
 export type $MonsterPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Monster"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    code: string
+    id: number
     name: string
     content: string
     hp: number
@@ -582,8 +585,8 @@ export interface MonsterDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * // Get first 10 Monsters
    * const monsters = await prisma.monster.findMany({ take: 10 })
    * 
-   * // Only select the `code`
-   * const monsterWithCodeOnly = await prisma.monster.findMany({ select: { code: true } })
+   * // Only select the `id`
+   * const monsterWithIdOnly = await prisma.monster.findMany({ select: { id: true } })
    * 
    */
   findMany<T extends MonsterFindManyArgs>(args?: Prisma.SelectSubset<T, MonsterFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MonsterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -868,7 +871,7 @@ export interface Prisma__MonsterClient<T, Null = never, ExtArgs extends runtime.
  * Fields of the Monster model
  */
 export interface MonsterFieldRefs {
-  readonly code: Prisma.FieldRef<"Monster", 'String'>
+  readonly id: Prisma.FieldRef<"Monster", 'Int'>
   readonly name: Prisma.FieldRef<"Monster", 'String'>
   readonly content: Prisma.FieldRef<"Monster", 'String'>
   readonly hp: Prisma.FieldRef<"Monster", 'Int'>

@@ -20,12 +20,22 @@ export type DefaultItemModel = runtime.Types.Result.DefaultSelection<Prisma.$Def
 
 export type AggregateDefaultItem = {
   _count: DefaultItemCountAggregateOutputType | null
+  _avg: DefaultItemAvgAggregateOutputType | null
+  _sum: DefaultItemSumAggregateOutputType | null
   _min: DefaultItemMinAggregateOutputType | null
   _max: DefaultItemMaxAggregateOutputType | null
 }
 
+export type DefaultItemAvgAggregateOutputType = {
+  id: number | null
+}
+
+export type DefaultItemSumAggregateOutputType = {
+  id: number | null
+}
+
 export type DefaultItemMinAggregateOutputType = {
-  code: string | null
+  id: number | null
   name: string | null
   content: string | null
   createdAt: Date | null
@@ -34,7 +44,7 @@ export type DefaultItemMinAggregateOutputType = {
 }
 
 export type DefaultItemMaxAggregateOutputType = {
-  code: string | null
+  id: number | null
   name: string | null
   content: string | null
   createdAt: Date | null
@@ -43,7 +53,7 @@ export type DefaultItemMaxAggregateOutputType = {
 }
 
 export type DefaultItemCountAggregateOutputType = {
-  code: number
+  id: number
   name: number
   content: number
   createdAt: number
@@ -53,8 +63,16 @@ export type DefaultItemCountAggregateOutputType = {
 }
 
 
+export type DefaultItemAvgAggregateInputType = {
+  id?: true
+}
+
+export type DefaultItemSumAggregateInputType = {
+  id?: true
+}
+
 export type DefaultItemMinAggregateInputType = {
-  code?: true
+  id?: true
   name?: true
   content?: true
   createdAt?: true
@@ -63,7 +81,7 @@ export type DefaultItemMinAggregateInputType = {
 }
 
 export type DefaultItemMaxAggregateInputType = {
-  code?: true
+  id?: true
   name?: true
   content?: true
   createdAt?: true
@@ -72,7 +90,7 @@ export type DefaultItemMaxAggregateInputType = {
 }
 
 export type DefaultItemCountAggregateInputType = {
-  code?: true
+  id?: true
   name?: true
   content?: true
   createdAt?: true
@@ -119,6 +137,18 @@ export type DefaultItemAggregateArgs<ExtArgs extends runtime.Types.Extensions.In
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: DefaultItemAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: DefaultItemSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: DefaultItemMinAggregateInputType
@@ -149,18 +179,22 @@ export type DefaultItemGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   _count?: DefaultItemCountAggregateInputType | true
+  _avg?: DefaultItemAvgAggregateInputType
+  _sum?: DefaultItemSumAggregateInputType
   _min?: DefaultItemMinAggregateInputType
   _max?: DefaultItemMaxAggregateInputType
 }
 
 export type DefaultItemGroupByOutputType = {
-  code: string
+  id: number
   name: string
   content: string | null
   createdAt: Date
   updatedAt: Date
   deletedAt: Date | null
   _count: DefaultItemCountAggregateOutputType | null
+  _avg: DefaultItemAvgAggregateOutputType | null
+  _sum: DefaultItemSumAggregateOutputType | null
   _min: DefaultItemMinAggregateOutputType | null
   _max: DefaultItemMaxAggregateOutputType | null
 }
@@ -184,7 +218,7 @@ export type DefaultItemWhereInput = {
   AND?: Prisma.DefaultItemWhereInput | Prisma.DefaultItemWhereInput[]
   OR?: Prisma.DefaultItemWhereInput[]
   NOT?: Prisma.DefaultItemWhereInput | Prisma.DefaultItemWhereInput[]
-  code?: Prisma.StringFilter<"DefaultItem"> | string
+  id?: Prisma.IntFilter<"DefaultItem"> | number
   name?: Prisma.StringFilter<"DefaultItem"> | string
   content?: Prisma.StringNullableFilter<"DefaultItem"> | string | null
   createdAt?: Prisma.DateTimeFilter<"DefaultItem"> | Date | string
@@ -194,7 +228,7 @@ export type DefaultItemWhereInput = {
 }
 
 export type DefaultItemOrderByWithRelationInput = {
-  code?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   content?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -205,7 +239,7 @@ export type DefaultItemOrderByWithRelationInput = {
 }
 
 export type DefaultItemWhereUniqueInput = Prisma.AtLeast<{
-  code?: string
+  id?: number
   AND?: Prisma.DefaultItemWhereInput | Prisma.DefaultItemWhereInput[]
   OR?: Prisma.DefaultItemWhereInput[]
   NOT?: Prisma.DefaultItemWhereInput | Prisma.DefaultItemWhereInput[]
@@ -215,25 +249,27 @@ export type DefaultItemWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"DefaultItem"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"DefaultItem"> | Date | string | null
   items?: Prisma.ItemListRelationFilter
-}, "code">
+}, "id">
 
 export type DefaultItemOrderByWithAggregationInput = {
-  code?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   content?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.DefaultItemCountOrderByAggregateInput
+  _avg?: Prisma.DefaultItemAvgOrderByAggregateInput
   _max?: Prisma.DefaultItemMaxOrderByAggregateInput
   _min?: Prisma.DefaultItemMinOrderByAggregateInput
+  _sum?: Prisma.DefaultItemSumOrderByAggregateInput
 }
 
 export type DefaultItemScalarWhereWithAggregatesInput = {
   AND?: Prisma.DefaultItemScalarWhereWithAggregatesInput | Prisma.DefaultItemScalarWhereWithAggregatesInput[]
   OR?: Prisma.DefaultItemScalarWhereWithAggregatesInput[]
   NOT?: Prisma.DefaultItemScalarWhereWithAggregatesInput | Prisma.DefaultItemScalarWhereWithAggregatesInput[]
-  code?: Prisma.StringWithAggregatesFilter<"DefaultItem"> | string
+  id?: Prisma.IntWithAggregatesFilter<"DefaultItem"> | number
   name?: Prisma.StringWithAggregatesFilter<"DefaultItem"> | string
   content?: Prisma.StringNullableWithAggregatesFilter<"DefaultItem"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"DefaultItem"> | Date | string
@@ -242,7 +278,6 @@ export type DefaultItemScalarWhereWithAggregatesInput = {
 }
 
 export type DefaultItemCreateInput = {
-  code: string
   name: string
   content?: string | null
   createdAt?: Date | string
@@ -252,7 +287,7 @@ export type DefaultItemCreateInput = {
 }
 
 export type DefaultItemUncheckedCreateInput = {
-  code: string
+  id?: number
   name: string
   content?: string | null
   createdAt?: Date | string
@@ -262,7 +297,6 @@ export type DefaultItemUncheckedCreateInput = {
 }
 
 export type DefaultItemUpdateInput = {
-  code?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -272,7 +306,7 @@ export type DefaultItemUpdateInput = {
 }
 
 export type DefaultItemUncheckedUpdateInput = {
-  code?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -282,7 +316,7 @@ export type DefaultItemUncheckedUpdateInput = {
 }
 
 export type DefaultItemCreateManyInput = {
-  code: string
+  id?: number
   name: string
   content?: string | null
   createdAt?: Date | string
@@ -291,7 +325,6 @@ export type DefaultItemCreateManyInput = {
 }
 
 export type DefaultItemUpdateManyMutationInput = {
-  code?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -300,7 +333,7 @@ export type DefaultItemUpdateManyMutationInput = {
 }
 
 export type DefaultItemUncheckedUpdateManyInput = {
-  code?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -315,7 +348,7 @@ export type DefaultItemOrderByRelevanceInput = {
 }
 
 export type DefaultItemCountOrderByAggregateInput = {
-  code?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   content?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -323,8 +356,12 @@ export type DefaultItemCountOrderByAggregateInput = {
   deletedAt?: Prisma.SortOrder
 }
 
+export type DefaultItemAvgOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+}
+
 export type DefaultItemMaxOrderByAggregateInput = {
-  code?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   content?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -333,12 +370,16 @@ export type DefaultItemMaxOrderByAggregateInput = {
 }
 
 export type DefaultItemMinOrderByAggregateInput = {
-  code?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   content?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+}
+
+export type DefaultItemSumOrderByAggregateInput = {
+  id?: Prisma.SortOrder
 }
 
 export type DefaultItemScalarRelationFilter = {
@@ -365,7 +406,6 @@ export type DefaultItemUpdateOneRequiredWithoutItemsNestedInput = {
 }
 
 export type DefaultItemCreateWithoutItemsInput = {
-  code: string
   name: string
   content?: string | null
   createdAt?: Date | string
@@ -374,7 +414,7 @@ export type DefaultItemCreateWithoutItemsInput = {
 }
 
 export type DefaultItemUncheckedCreateWithoutItemsInput = {
-  code: string
+  id?: number
   name: string
   content?: string | null
   createdAt?: Date | string
@@ -399,7 +439,6 @@ export type DefaultItemUpdateToOneWithWhereWithoutItemsInput = {
 }
 
 export type DefaultItemUpdateWithoutItemsInput = {
-  code?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -408,7 +447,7 @@ export type DefaultItemUpdateWithoutItemsInput = {
 }
 
 export type DefaultItemUncheckedUpdateWithoutItemsInput = {
-  code?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -448,7 +487,7 @@ export type DefaultItemCountOutputTypeCountItemsArgs<ExtArgs extends runtime.Typ
 
 
 export type DefaultItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  code?: boolean
+  id?: boolean
   name?: boolean
   content?: boolean
   createdAt?: boolean
@@ -461,7 +500,7 @@ export type DefaultItemSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 
 
 export type DefaultItemSelectScalar = {
-  code?: boolean
+  id?: boolean
   name?: boolean
   content?: boolean
   createdAt?: boolean
@@ -469,7 +508,7 @@ export type DefaultItemSelectScalar = {
   deletedAt?: boolean
 }
 
-export type DefaultItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"code" | "name" | "content" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["defaultItem"]>
+export type DefaultItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "content" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["defaultItem"]>
 export type DefaultItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   items?: boolean | Prisma.DefaultItem$itemsArgs<ExtArgs>
   _count?: boolean | Prisma.DefaultItemCountOutputTypeDefaultArgs<ExtArgs>
@@ -481,7 +520,7 @@ export type $DefaultItemPayload<ExtArgs extends runtime.Types.Extensions.Interna
     items: Prisma.$ItemPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    code: string
+    id: number
     name: string
     content: string | null
     createdAt: Date
@@ -570,8 +609,8 @@ export interface DefaultItemDelegate<ExtArgs extends runtime.Types.Extensions.In
    * // Get first 10 DefaultItems
    * const defaultItems = await prisma.defaultItem.findMany({ take: 10 })
    * 
-   * // Only select the `code`
-   * const defaultItemWithCodeOnly = await prisma.defaultItem.findMany({ select: { code: true } })
+   * // Only select the `id`
+   * const defaultItemWithIdOnly = await prisma.defaultItem.findMany({ select: { id: true } })
    * 
    */
   findMany<T extends DefaultItemFindManyArgs>(args?: Prisma.SelectSubset<T, DefaultItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DefaultItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -857,7 +896,7 @@ export interface Prisma__DefaultItemClient<T, Null = never, ExtArgs extends runt
  * Fields of the DefaultItem model
  */
 export interface DefaultItemFieldRefs {
-  readonly code: Prisma.FieldRef<"DefaultItem", 'String'>
+  readonly id: Prisma.FieldRef<"DefaultItem", 'Int'>
   readonly name: Prisma.FieldRef<"DefaultItem", 'String'>
   readonly content: Prisma.FieldRef<"DefaultItem", 'String'>
   readonly createdAt: Prisma.FieldRef<"DefaultItem", 'DateTime'>

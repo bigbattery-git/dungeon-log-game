@@ -879,7 +879,7 @@ export type CharacterScalarFieldEnum = (typeof CharacterScalarFieldEnum)[keyof t
 
 
 export const DefaultItemScalarFieldEnum = {
-  code: 'code',
+  id: 'id',
   name: 'name',
   content: 'content',
   createdAt: 'createdAt',
@@ -893,7 +893,7 @@ export type DefaultItemScalarFieldEnum = (typeof DefaultItemScalarFieldEnum)[key
 export const ItemScalarFieldEnum = {
   id: 'id',
   characterId: 'characterId',
-  defaultItemCode: 'defaultItemCode',
+  defaultItemId: 'defaultItemId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt'
@@ -915,7 +915,7 @@ export type ExplorationLogScalarFieldEnum = (typeof ExplorationLogScalarFieldEnu
 
 
 export const MonsterScalarFieldEnum = {
-  code: 'code',
+  id: 'id',
   name: 'name',
   content: 'content',
   hp: 'hp',
@@ -964,19 +964,11 @@ export type CharacterOrderByRelevanceFieldEnum = (typeof CharacterOrderByRelevan
 
 
 export const DefaultItemOrderByRelevanceFieldEnum = {
-  code: 'code',
   name: 'name',
   content: 'content'
 } as const
 
 export type DefaultItemOrderByRelevanceFieldEnum = (typeof DefaultItemOrderByRelevanceFieldEnum)[keyof typeof DefaultItemOrderByRelevanceFieldEnum]
-
-
-export const ItemOrderByRelevanceFieldEnum = {
-  defaultItemCode: 'defaultItemCode'
-} as const
-
-export type ItemOrderByRelevanceFieldEnum = (typeof ItemOrderByRelevanceFieldEnum)[keyof typeof ItemOrderByRelevanceFieldEnum]
 
 
 export const ExplorationLogOrderByRelevanceFieldEnum = {
@@ -987,7 +979,6 @@ export type ExplorationLogOrderByRelevanceFieldEnum = (typeof ExplorationLogOrde
 
 
 export const MonsterOrderByRelevanceFieldEnum = {
-  code: 'code',
   name: 'name',
   content: 'content'
 } as const

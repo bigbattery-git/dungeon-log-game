@@ -47,7 +47,7 @@ model Character{
 }
 
 model DefaultItem{
-  code String @id // 아이템 코드도 같이 넣어야함 I-Heal-Potion 등
+  id Int @id @default(autoincrement()) // 아이템 코드도 같이 넣어야함 I-Heal-Potion 등
   name String
   content String? @db.VarChar(500)
   createdAt DateTime @default(now()) @map("created_at")
@@ -63,13 +63,13 @@ model DefaultItem{
 model Item{
   id Int @id @default(autoincrement())
   characterId Int
-  defaultItemCode String
+  defaultItemId Int
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   deletedAt DateTime? @map("deleted_at")
 
   character Character @relation(fields: [characterId], references: [id])
-  defaultItem DefaultItem @relation(fields: [defaultItemCode], references: [code])
+  defaultItem DefaultItem @relation(fields: [defaultItemId], references: [id])
 
   @@map("items")
 }
@@ -88,7 +88,7 @@ model ExplorationLog {
 }
 
 model Monster {
-  code String @id
+  id Int @id @default(autoincrement())
   name String
   content String
   hp Int @default(3)  // 체력

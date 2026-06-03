@@ -29,17 +29,19 @@ export type AggregateItem = {
 export type ItemAvgAggregateOutputType = {
   id: number | null
   characterId: number | null
+  defaultItemId: number | null
 }
 
 export type ItemSumAggregateOutputType = {
   id: number | null
   characterId: number | null
+  defaultItemId: number | null
 }
 
 export type ItemMinAggregateOutputType = {
   id: number | null
   characterId: number | null
-  defaultItemCode: string | null
+  defaultItemId: number | null
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
@@ -48,7 +50,7 @@ export type ItemMinAggregateOutputType = {
 export type ItemMaxAggregateOutputType = {
   id: number | null
   characterId: number | null
-  defaultItemCode: string | null
+  defaultItemId: number | null
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
@@ -57,7 +59,7 @@ export type ItemMaxAggregateOutputType = {
 export type ItemCountAggregateOutputType = {
   id: number
   characterId: number
-  defaultItemCode: number
+  defaultItemId: number
   createdAt: number
   updatedAt: number
   deletedAt: number
@@ -68,17 +70,19 @@ export type ItemCountAggregateOutputType = {
 export type ItemAvgAggregateInputType = {
   id?: true
   characterId?: true
+  defaultItemId?: true
 }
 
 export type ItemSumAggregateInputType = {
   id?: true
   characterId?: true
+  defaultItemId?: true
 }
 
 export type ItemMinAggregateInputType = {
   id?: true
   characterId?: true
-  defaultItemCode?: true
+  defaultItemId?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
@@ -87,7 +91,7 @@ export type ItemMinAggregateInputType = {
 export type ItemMaxAggregateInputType = {
   id?: true
   characterId?: true
-  defaultItemCode?: true
+  defaultItemId?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
@@ -96,7 +100,7 @@ export type ItemMaxAggregateInputType = {
 export type ItemCountAggregateInputType = {
   id?: true
   characterId?: true
-  defaultItemCode?: true
+  defaultItemId?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
@@ -192,7 +196,7 @@ export type ItemGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type ItemGroupByOutputType = {
   id: number
   characterId: number
-  defaultItemCode: string
+  defaultItemId: number
   createdAt: Date
   updatedAt: Date
   deletedAt: Date | null
@@ -224,7 +228,7 @@ export type ItemWhereInput = {
   NOT?: Prisma.ItemWhereInput | Prisma.ItemWhereInput[]
   id?: Prisma.IntFilter<"Item"> | number
   characterId?: Prisma.IntFilter<"Item"> | number
-  defaultItemCode?: Prisma.StringFilter<"Item"> | string
+  defaultItemId?: Prisma.IntFilter<"Item"> | number
   createdAt?: Prisma.DateTimeFilter<"Item"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Item"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Item"> | Date | string | null
@@ -235,13 +239,12 @@ export type ItemWhereInput = {
 export type ItemOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   characterId?: Prisma.SortOrder
-  defaultItemCode?: Prisma.SortOrder
+  defaultItemId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   character?: Prisma.CharacterOrderByWithRelationInput
   defaultItem?: Prisma.DefaultItemOrderByWithRelationInput
-  _relevance?: Prisma.ItemOrderByRelevanceInput
 }
 
 export type ItemWhereUniqueInput = Prisma.AtLeast<{
@@ -250,7 +253,7 @@ export type ItemWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ItemWhereInput[]
   NOT?: Prisma.ItemWhereInput | Prisma.ItemWhereInput[]
   characterId?: Prisma.IntFilter<"Item"> | number
-  defaultItemCode?: Prisma.StringFilter<"Item"> | string
+  defaultItemId?: Prisma.IntFilter<"Item"> | number
   createdAt?: Prisma.DateTimeFilter<"Item"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Item"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Item"> | Date | string | null
@@ -261,7 +264,7 @@ export type ItemWhereUniqueInput = Prisma.AtLeast<{
 export type ItemOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   characterId?: Prisma.SortOrder
-  defaultItemCode?: Prisma.SortOrder
+  defaultItemId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -278,7 +281,7 @@ export type ItemScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ItemScalarWhereWithAggregatesInput | Prisma.ItemScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Item"> | number
   characterId?: Prisma.IntWithAggregatesFilter<"Item"> | number
-  defaultItemCode?: Prisma.StringWithAggregatesFilter<"Item"> | string
+  defaultItemId?: Prisma.IntWithAggregatesFilter<"Item"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Item"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Item"> | Date | string
   deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Item"> | Date | string | null
@@ -295,7 +298,7 @@ export type ItemCreateInput = {
 export type ItemUncheckedCreateInput = {
   id?: number
   characterId: number
-  defaultItemCode: string
+  defaultItemId: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -312,7 +315,7 @@ export type ItemUpdateInput = {
 export type ItemUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   characterId?: Prisma.IntFieldUpdateOperationsInput | number
-  defaultItemCode?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultItemId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -321,7 +324,7 @@ export type ItemUncheckedUpdateInput = {
 export type ItemCreateManyInput = {
   id?: number
   characterId: number
-  defaultItemCode: string
+  defaultItemId: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -336,7 +339,7 @@ export type ItemUpdateManyMutationInput = {
 export type ItemUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   characterId?: Prisma.IntFieldUpdateOperationsInput | number
-  defaultItemCode?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultItemId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -352,16 +355,10 @@ export type ItemOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type ItemOrderByRelevanceInput = {
-  fields: Prisma.ItemOrderByRelevanceFieldEnum | Prisma.ItemOrderByRelevanceFieldEnum[]
-  sort: Prisma.SortOrder
-  search: string
-}
-
 export type ItemCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   characterId?: Prisma.SortOrder
-  defaultItemCode?: Prisma.SortOrder
+  defaultItemId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -370,12 +367,13 @@ export type ItemCountOrderByAggregateInput = {
 export type ItemAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   characterId?: Prisma.SortOrder
+  defaultItemId?: Prisma.SortOrder
 }
 
 export type ItemMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   characterId?: Prisma.SortOrder
-  defaultItemCode?: Prisma.SortOrder
+  defaultItemId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -384,7 +382,7 @@ export type ItemMaxOrderByAggregateInput = {
 export type ItemMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   characterId?: Prisma.SortOrder
-  defaultItemCode?: Prisma.SortOrder
+  defaultItemId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -393,6 +391,7 @@ export type ItemMinOrderByAggregateInput = {
 export type ItemSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   characterId?: Prisma.SortOrder
+  defaultItemId?: Prisma.SortOrder
 }
 
 export type ItemCreateNestedManyWithoutCharacterInput = {
@@ -488,7 +487,7 @@ export type ItemCreateWithoutCharacterInput = {
 
 export type ItemUncheckedCreateWithoutCharacterInput = {
   id?: number
-  defaultItemCode: string
+  defaultItemId: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -526,7 +525,7 @@ export type ItemScalarWhereInput = {
   NOT?: Prisma.ItemScalarWhereInput | Prisma.ItemScalarWhereInput[]
   id?: Prisma.IntFilter<"Item"> | number
   characterId?: Prisma.IntFilter<"Item"> | number
-  defaultItemCode?: Prisma.StringFilter<"Item"> | string
+  defaultItemId?: Prisma.IntFilter<"Item"> | number
   createdAt?: Prisma.DateTimeFilter<"Item"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Item"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Item"> | Date | string | null
@@ -575,7 +574,7 @@ export type ItemUpdateManyWithWhereWithoutDefaultItemInput = {
 
 export type ItemCreateManyCharacterInput = {
   id?: number
-  defaultItemCode: string
+  defaultItemId: number
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
@@ -590,7 +589,7 @@ export type ItemUpdateWithoutCharacterInput = {
 
 export type ItemUncheckedUpdateWithoutCharacterInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  defaultItemCode?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultItemId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -598,7 +597,7 @@ export type ItemUncheckedUpdateWithoutCharacterInput = {
 
 export type ItemUncheckedUpdateManyWithoutCharacterInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  defaultItemCode?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultItemId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -640,7 +639,7 @@ export type ItemUncheckedUpdateManyWithoutDefaultItemInput = {
 export type ItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   characterId?: boolean
-  defaultItemCode?: boolean
+  defaultItemId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
@@ -653,13 +652,13 @@ export type ItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 export type ItemSelectScalar = {
   id?: boolean
   characterId?: boolean
-  defaultItemCode?: boolean
+  defaultItemId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
 }
 
-export type ItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "characterId" | "defaultItemCode" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["item"]>
+export type ItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "characterId" | "defaultItemId" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["item"]>
 export type ItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   character?: boolean | Prisma.CharacterDefaultArgs<ExtArgs>
   defaultItem?: boolean | Prisma.DefaultItemDefaultArgs<ExtArgs>
@@ -674,7 +673,7 @@ export type $ItemPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     characterId: number
-    defaultItemCode: string
+    defaultItemId: number
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
@@ -1051,7 +1050,7 @@ export interface Prisma__ItemClient<T, Null = never, ExtArgs extends runtime.Typ
 export interface ItemFieldRefs {
   readonly id: Prisma.FieldRef<"Item", 'Int'>
   readonly characterId: Prisma.FieldRef<"Item", 'Int'>
-  readonly defaultItemCode: Prisma.FieldRef<"Item", 'String'>
+  readonly defaultItemId: Prisma.FieldRef<"Item", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Item", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Item", 'DateTime'>
   readonly deletedAt: Prisma.FieldRef<"Item", 'DateTime'>

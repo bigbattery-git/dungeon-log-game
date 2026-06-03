@@ -4,7 +4,6 @@ async function main(){
     prisma.$transaction(async (prisma) => {
         await prisma.defaultItem.create({
             data : {
-                code : "ITEM-HEALING-01",
                 name : "회복물약",
                 content : "체력을 2 회복시킵니다."
             }
@@ -12,7 +11,6 @@ async function main(){
 
         await prisma.monster.create({
             data : {
-                code : "MONSTER-GOBLIN-01",
                 name : "고블린",
                 content : "잡몹입니다."
             }
