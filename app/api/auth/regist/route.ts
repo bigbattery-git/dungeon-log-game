@@ -8,7 +8,7 @@ import { success } from "zod";
 
 export async function POST(req : NextRequest){
     let reqData : POSTRegistRequest | null | undefined;
-    let response : POSTRegistResponse = {
+    const response : POSTRegistResponse = {
         success : false,
         message : null
     }
